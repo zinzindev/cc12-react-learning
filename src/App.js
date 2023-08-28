@@ -1,6 +1,6 @@
 // import { useReducer, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { countActions } from './redux/store';
+import { counterSliceActions } from './redux/store';
 
 import './App.css';
 
@@ -33,23 +33,24 @@ import './App.css';
 // }
 
 function App() {
-	const count = useSelector((state) => {
+	const counts = useSelector((state) => {
 		console.log(state);
-		return state.count.count;
+		return state.counterStore.count;
 	});
 
 	const dispatch = useDispatch();
 
 	return (
 		<div className='App'>
-			<h1>{count}</h1>
-			<button onClick={() => dispatch(countActions.increase())}>+</button>
-			<button onClick={() => dispatch(countActions.decrease())}>-</button>
-			<button onClick={() => dispatch(countActions.increase(2))}>Increase by two</button>
+			<h1>{counts}</h1>
+			<button onClick={() => dispatch(counterSliceActions.increase())}>+</button>
+			<button onClick={() => dispatch(counterSliceActions.decrease())}>-</button>
+			<br/>
+			<button onClick={() => dispatch(counterSliceActions.increase(2))}>Increase by two</button>
 		</div>
 	);
 }
 
-// countActions.increase(2) => {type: 'counter/increase', payload: 2}
+// counterSliceActions.increase(2) => {type: 'counter/increase', payload: 2}
 
 export default App;
