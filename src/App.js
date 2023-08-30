@@ -34,8 +34,9 @@ import './App.css';
 
 function App() {
 	const counts = useSelector((state) => {
+		console.log('useSelector -> state')
 		console.log(state);
-		return state.counterStore.count;
+		return state.counterStore.counterIntState;
 	});
 
 	const dispatch = useDispatch();

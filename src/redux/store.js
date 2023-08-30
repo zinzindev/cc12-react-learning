@@ -2,20 +2,21 @@
 
 const counterSlice = createSlice({
 	name: 'counter',
-	initialState: { count: 123456 },
+	initialState: { counterIntState: 123456 },
 	reducers: {
 		increase: (state, action) => {
 			// console.log(state)
    			console.log(action);
-			state.count = state.count + (action.payload ?? 1);
+			state.counterIntState = state.counterIntState + (action.payload ?? 1);
 			// return {...state, count: state.count + 1}
 		},
 		decrease: (state, action) => {
-			state.count = state.count - 1;
+			state.counterIntState = state.counterIntState - 1;
 		},
 	},
 });
 
+console.log('counterSlice');
 console.log(counterSlice);
 const counterSliceActions = counterSlice.actions;
 
